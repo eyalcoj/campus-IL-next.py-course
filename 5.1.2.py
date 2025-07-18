@@ -1,0 +1,23 @@
+import winsound
+
+
+def main():
+    freqs = {"la": 220,
+             "si": 247,
+             "do": 261,
+             "re": 293,
+             "mi": 329,
+             "fa": 349,
+             "sol": 392,
+             }
+
+    notes = "sol,250-mi,250-mi,500-fa,250-re,250-re,500-do,250-re,250-mi,250-fa,250-sol,250-sol,250-sol,500"
+
+    for note in notes.split('-'):
+        note = note.split(',')
+        frequency, duration = freqs.get(note[0]), note[1]
+        winsound.Beep(frequency, int(duration))
+
+
+if "__main__" == __name__:
+    main()
